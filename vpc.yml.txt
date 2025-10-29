@@ -18,7 +18,7 @@ Resources:
 Outputs:
   VPCId:
     Description: ID of the created VPC 
-  value: !Ref MyVPC
+  value: !Ref MyVPC-1
 
 }
 
@@ -37,3 +37,38 @@ Outputs:
           Value: MyVPC-2
 
 }
+
+
+  MyVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: MyVPC-3
+
+Outputs:
+  VPCId:
+    Description: ID of the created VPC
+  value: !Ref MyVPC
+
+}
+
+
+
+
+{  Resources:
+  MyVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: MyVPC-4
+
+}
+
