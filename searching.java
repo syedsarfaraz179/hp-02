@@ -1,0 +1,21 @@
+# csv_summary.py
+# Run: python csv_summary.py
+# Create a small sample.csv first with: name,age,score
+
+import csv
+from collections import defaultdict
+
+def summarize(path):
+    by_name = defaultdict(list)
+    with open(path, newline='') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            name = row.get("name","")
+            score = float(row.get("score") or 0)
+            by_name[name].append(score)
+    for name, scores in by_name.items():
+        print(f"{name}: count={len(scores)}, avg={sum(scores)/len(scores):.2f}")
+
+if __name__ == "__main__":
+    path = input("CSV file path (sample.csv): ") or "sample.csv"
+    summarize(path)
