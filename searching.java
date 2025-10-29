@@ -18,4 +18,4 @@ def summarize(path):
 
 if __name__ == "__main__":
     path = input("CSV file path (sample.csv): ") or "sample.csv"
-    summarize(path)
+summarize(path)
