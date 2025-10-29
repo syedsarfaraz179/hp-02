@@ -1,0 +1,19 @@
+
+
+# tiny_server.py
+# Run: python tiny_server.py
+# Then open http://localhost:8000 in browser
+
+import http.server
+import socketserver
+
+PORT = 8000
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print(f"Serving at port {PORT}")
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("Stopping server.")
+
